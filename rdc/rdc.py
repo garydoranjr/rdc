@@ -78,13 +78,13 @@ def rdc(x, y, f=np.sin, k=20, s=1/6., n=1):
                 0 <= np.min(eigs) and
                 np.max(eigs) <= 1):
             ub -= 1
-            k = (ub + lb) / 2
+            k = (ub + lb) // 2
             continue
         if lb == ub: break
         lb = k
         if ub == lb + 1:
             k = ub
         else:
-            k = (ub + lb) / 2
+            k = (ub + lb) // 2
 
     return np.sqrt(np.max(eigs))
