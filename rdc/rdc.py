@@ -70,8 +70,8 @@ def rdc(x, y, f=np.sin, k=20, s=1/6., n=1):
         Cxy = C[:k, k0:k0+k]
         Cyx = C[k0:k0+k, :k]
 
-        eigs = np.linalg.eigvals(np.dot(np.dot(np.linalg.inv(Cxx), Cxy),
-                                        np.dot(np.linalg.inv(Cyy), Cyx)))
+        eigs = np.linalg.eigvals(np.dot(np.dot(np.linalg.pinv(Cxx), Cxy),
+                                        np.dot(np.linalg.pinv(Cyy), Cyx)))
 
         # Binary search if k is too large
         if not (np.all(np.isreal(eigs)) and
